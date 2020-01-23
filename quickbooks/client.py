@@ -249,9 +249,9 @@ class QuickBooks(object):
         return self.session.request(
             request_type, url, headers=headers, params=params, data=data)
 
-    def get_single_object(self, qbbo, pk):
+    def get_single_object(self, qbbo, pk, query_param):
         url = "{0}/company/{1}/{2}/{3}/".format(self.api_url, self.company_id, qbbo.lower(), pk)
-        result = self.get(url, {})
+        result = self.get(url, query_param)
 
         return result
 
