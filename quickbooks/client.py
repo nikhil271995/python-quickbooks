@@ -227,6 +227,7 @@ class QuickBooks(object):
             raise exceptions.QuickbooksException("Error reading json response: {0}".format(req.text), 10000)
 
         if "Fault" in result:
+            print(result, "response")
             self.handle_exceptions(result["Fault"])
         elif not req.status_code == httplib.OK:
             raise exceptions.QuickbooksException("Error returned with status code '{0}': {1}".format(
